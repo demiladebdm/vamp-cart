@@ -31,6 +31,12 @@ export class UserService {
     return this.sanitizaUser(createdUser);
   }
 
+  async findAll() {
+    const users = await this.userModel.find().exec();
+    // return this.sanitizaUser(users);
+    return users
+  }
+
   async findByLogin(userDTO: LoginDTO) {
     const { username, password } = userDTO;
     const user = await this.userModel.findOne({ username });
@@ -45,8 +51,8 @@ export class UserService {
     }
   }
 
-  async findByPayload(payload: Payload){
+  async findByPayload(payload: Payload) {
     const { username } = payload;
-    return await this.userModel.findOne({username});
+    return await this.userModel.findOne({ username });
   }
 }
