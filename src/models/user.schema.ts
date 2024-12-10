@@ -1,7 +1,8 @@
 import * as mongoose from 'mongoose';
+import * as bcrypt from 'bcrypt';
 
 export const UserSchema = new mongoose.Schema({
-  name: String,
+  username: String,
   password: String,
   seller: {
     type: Boolean,
@@ -18,5 +19,18 @@ export const UserSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
+  }
+})
+
+UserSchema.pre('save', async function (next) {
+  try {
+    if (!this.isModified('password')) {
+      return next();
+    }
+    const hashed = await bcrypt.hash(this['password'], 10);
+    this['password'] = hashed;
+    next();
+  } catch (error) {
+    next(error)
   }
 })
