@@ -21,6 +21,8 @@ export const OrderSchema = new mongoose.Schema({
       }
     }
   ],
+  reservationTime: { type: Date, default: Date.now },
+  status: { type: String, enum: ['active', 'expired'], default: 'active' },
   created: {
     type: Date,
     default: Date.now

@@ -12,5 +12,7 @@ export interface Order extends Document {
   owner: User
   totalProce: number;
   products: ProductOrder[];
+  reservationTime: Date;
+  status: 'active' | 'expired'; 
   created: Date;
 }

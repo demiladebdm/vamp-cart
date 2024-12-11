@@ -8,7 +8,9 @@ export const ProductSchema = new mongoose.Schema({
   title: String,
   description: String,
   image: String,
-  price: String,
+  price: Number,
+  count: Number,
+  reserved: { type: Number, default: 0 },
   created: {
     type: Date,
     default: Date.now

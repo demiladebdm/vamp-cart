@@ -8,7 +8,7 @@ import { Payload } from "src/types/payload";
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),      
       secretOrKey: process.env.SECRET_KEY
     });
   }

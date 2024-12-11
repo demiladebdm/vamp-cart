@@ -12,18 +12,6 @@ export class AuthController {
 
   constructor(private userService: UserService, private authService: AuthService) { }
 
-  @Get()
-  @UseGuards(AuthGuard('jwt'), SellerGuard)
-  tempAuth() {
-    return { auth: 'works' }
-  }
-
-  //For Dev-Testing
-  async findAll(@User() user: any) {
-    console.log("User", user)
-    return await this.userService.findAll();
-  }
-
   @Post('login')
   async login(@Body() userDTO: LoginDTO) {
     const user = await this.userService.findByLogin(userDTO)

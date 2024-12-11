@@ -12,8 +12,6 @@ export class UserService {
 
   private sanitizaUser(user: User) {
     const sanitized = user.toObject();
-    // delete sanitized.password;
-    // delete sanitized.__v;
     const exclude = ['password', '__v']
     exclude.forEach((i) => delete sanitized[i])
     return sanitized;
@@ -33,7 +31,6 @@ export class UserService {
 
   async findAll() {
     const users = await this.userModel.find().exec();
-    // return this.sanitizaUser(users);
     return users
   }
 

@@ -7,6 +7,8 @@ export interface Product extends Document {
   title: string;
   description: string;
   image: string;
-  price: string;
+  price: number;
+  count: number;
+  reserved: number;
   created: Date;
 }
