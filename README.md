@@ -35,7 +35,7 @@ This project implements a mini carting system for an e-commerce platform using *
 Clone the repository and navigate to the project directory:
 
 ```bash
-$ git clone <repository-url>
+$ git clone <https://github.com/demiladebdm/vamp-cart.git>
 $ cd vamp-cart
 ```
 
