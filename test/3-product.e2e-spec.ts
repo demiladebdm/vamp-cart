@@ -77,14 +77,14 @@ describe('ProductController (e2e)', () => {
   it('should list all products', () => {
     return request(getApp().getHttpServer())
       .get('/product')
-      .expect(200);
+      .expect(HttpStatus.OK);
   });
 
   it('should list my products', () => {
     return request(getApp().getHttpServer())
       .get('/product/mine')
       .set('Authorization', `Bearer ${sellerToken}`)
-      .expect(200);
+      .expect(HttpStatus.OK);
   });
 
   it('should create product', () => {
@@ -113,7 +113,7 @@ describe('ProductController (e2e)', () => {
         expect(body.price).toEqual(product.price);
         expect(body.owner.username).toEqual(productSeller.username);
       })
-      .expect(200);
+      .expect(HttpStatus.OK);
   });
 
   it('should update product', () => {
@@ -130,7 +130,7 @@ describe('ProductController (e2e)', () => {
         expect(body.price).toEqual(product.price);
         expect(body.owner.username).toEqual(productSeller.username);
       })
-      .expect(200);
+      .expect(HttpStatus.OK);
   });
 
   it('should delete product', async () => {
