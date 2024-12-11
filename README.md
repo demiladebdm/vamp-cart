@@ -48,9 +48,9 @@ $ npm install
 Set up your environment variables in a `.env` file:
 
 ```
-MONGO_URI='mongodb+srv://vamp-commerce:VampCommerce@main.ygjax.mongodb.net/vamp-commerce?retryWrites=true&w=majority&appName=main'
-MONGO_URI_TEST='mongodb+srv://vamp-commerce:VampCommerce@main.ygjax.mongodb.net/vamp-commerce-test?retryWrites=true&w=majority&appName=main'
-SECRET_KEY='secretKey'
+MONGO_URI=''
+MONGO_URI_TEST=''
+SECRET_KEY=''
 PORT=3000
 ```
 
